@@ -1,0 +1,6 @@
+{
+  "name": "Ayush Plan",
+  "description": "An AI-powered Yoga Therapy and Ayurvedic Wellness Consultant to generate structured holistic health plans from text or medical notes query images.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
