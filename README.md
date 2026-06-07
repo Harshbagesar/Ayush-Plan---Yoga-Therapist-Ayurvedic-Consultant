@@ -2,7 +2,8 @@
 <img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
 
-# Run and deploy your AI Studio app
+# Ayush-Plan - Yoga Therapist & Ayurvedic Consultant
+🧘 Yoga Therapy & Wellness Engine — Personalized Asanas, Pranayama, Ayurvedic Diets & Home Remedies
 
 This contains everything you need to run your app locally.
 
@@ -12,9 +13,8 @@ View your app in AI Studio: https://ai.studio/apps/d5d7113f-5fe4-4c7a-8f4a-c94c7
 
 **Prerequisites:**  Node.js
 
-
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Set the `GEMINI_API_KEY` in `.env` to your Gemini API key
 3. Run the app:
    `npm run dev`
