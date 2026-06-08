@@ -171,11 +171,28 @@ export default function App() {
       });
 
       if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.error || `Server responded with ${response.status}`);
+        let errMessage = `Server responded with status ${response.status}`;
+        try {
+          const errData = await response.json();
+          errMessage = errData.error || errMessage;
+        } catch (_) {
+          // If response is not JSON (e.g. standard Vercel HTML error or empty response)
+          try {
+            const bodyText = await response.text();
+            if (bodyText && bodyText.trim().length > 0 && bodyText.length < 150) {
+              errMessage = bodyText.trim();
+            }
+          } catch (_) {}
+        }
+        throw new Error(errMessage);
       }
 
-      const planData: HealthPlan = await response.json();
+      let planData: HealthPlan;
+      try {
+        planData = await response.json();
+      } catch (jsonErr: any) {
+        throw new Error("Received an invalid response format from the server. Please check your environment variables or try again later.");
+      }
 
       setCurrentPlan(planData);
       saveToHistory(planData, textQuery, imageBase64);
